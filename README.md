@@ -1,3 +1,4 @@
+view our docs: https://documenter.getpostman.com/view/29096955/2sA35A7QNt
 # Things I did
 implement squad payment api
 rendered view with ejs
