@@ -4,7 +4,7 @@ const path = require('path')
 import dotenv from 'dotenv';
 dotenv.config();
 const cookieParser = require('cookie-parser');
-const db = require('../db/index')
+const db = require('./db/index');
 const PORT = process.env.PORT;
 import { createUser, resetPassword, resetToken, signUp, userLogin } from './controllers/userController';
 import { verifyToken } from './middlewares/auth.middleware';
