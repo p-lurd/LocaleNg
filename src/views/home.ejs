@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css">
+
+<title>Locale</title>
+</head>
+
+<body>
+  <script>
+    function showPopup(message, isError) {
+        console.log("it called showPopup");
+        
+        // Create a new div element
+        const newDiv = document.createElement('div');
+        newDiv.id = "popupNotification";
+        newDiv.className = "popup";
+        newDiv.style.backgroundColor = "aquamarine";
+        
+        // Set the inner HTML of the new div
+        newDiv.innerHTML = `
+            <span class="close" onclick="closePopup()">&times;</span>
+            <p id="notificationMessage">${message}</p>
+        `;
+        
+        // Get a reference to the body element
+        const body = document.body;
+        
+        // Insert the new div before the first child of the body
+        body.insertBefore(newDiv, body.firstChild);
+        setTimeout(closePopup, 10000)
+    }
+    function closePopup() {
+  const popup = document.getElementById('popupNotification');
+  // popup.style.display = 'none'; // Hide the popup
+  popup.classList.remove('show'); 
+//   setTimeout(function() {
+//     popup.style.display = 'none'; // Hide popup after transition is complete
+// }, 1000);
+popup.style.display = 'none'
+};
+</script>
+  <%if (message) { %>
+  <div id="popupNotification" class="popup" style="background-color: aquamarine;">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <p id="notificationMessage"><%= message.message %></p>
+</div>
+<script>setTimeout(closePopup, 10000)</script>
+<%}%>
+<!-- <%if (message) { %>
+  <script>showPopup(<%= message.message %>, true)</script>
+  <%}%> -->
+
+    <header class="article">
+        <h1>Locale is a developer tool for anyone who needs to know Nigeria, geographically at least. Locale’s API you all of Nigeria’s regions,<br>  states, and local government areas(LGAs).</h1>
+    </header>
+    <%if (token) { %>
+      <a class="btn decor" href="/signout">sign out</a>
+      <%} else{%>
+        <a class="btn decor" href="/signup">Sign Up/Login</a>
+        <%}%>
+    
+  <header>
+    <h1>Our Pricing</h1>
+    <div class="toggle">
+      <label>Annually </label>
+      <div class="toggle-btn">
+        <input type="checkbox" class="checkbox" id="checkbox" />
+        <label class="sub" id="sub" for="checkbox">
+          <div class="circle"></div>
+        </label>
+      </div>
+      <label> Monthly</label>
+    </div>
+  </header>
+  <div class="cards">
+    <div class="card shadow">
+      <ul>
+        <li class="pack">Basic</li>
+        <li id="basic" class="price bottom-bar">Free</li>
+        <li class="bottom-bar">100 requests/day</li>
+        <li class="bottom-bar">General support</li>
+        <li class="bottom-bar">and more...</li>
+        <li><a class="btn decor" href="/signup">Try out</a></li>
+      </ul>
+    </div>
+    <div class="card active">
+      <ul>
+        <li class="pack">Professional</li>
+        <li id="professional" class="price bottom-bar">#50,000</li>
+        <li class="bottom-bar">unlimited requests</li>
+        <li class="bottom-bar">priority support</li>
+        <li class="bottom-bar">and more...</li>
+        <li><button class="btn active-btn" id="sub50">Pay</button></li>
+      </ul>
+    </div>
+    <div class="card shadow">
+      <ul>
+        <li class="pack">Master</li>
+        <li id="master" class="price bottom-bar">#80,000</li>
+        <li class="bottom-bar">unlimited requests</li>
+        <li class="bottom-bar">priority support</li>
+        <li class="bottom-bar">latest features</li>
+        <li><button class="btn" id="sub80">Pay</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>

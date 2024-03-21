@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheBlog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <%if (UserError) { %>
+        <div id="popupNotification" class="popup">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <p id="notificationMessage"><%= UserError.message %></p>
+            <script>setTimeout(closePopup, 10000)</script>
+        </div>
+          
+    <%}%>
+   
+    <div class="main_signup">
+        <h2>Login</h2>
+       
+    <div>
+        <form action="/login" method="post">
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email" value=""><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" value=""><br><br>
+            <input type="submit" value="Submit">
+        </form>
+           
+    </div>
+    <br><a href="/signup" class="special_links">Not a user? click me</a>
+    <br><a href="/forgot_password" class="special_links">forgot password?</a>
+    
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

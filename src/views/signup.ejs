@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css">
+
+<title>Locale</title>
+</head>
+<body>
+    
+    <%if (UserError) { %>
+        <div id="popupNotification" class="popup">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <p id="notificationMessage"><%= UserError.message %></p>
+            <script>setTimeout(closePopup, 10000)</script>
+        </div>
+          
+    <%}%>
+    
+   
+    
+    <div class="main_signup" id="signup_only">
+        <h2>Signup</h2>
+        <form action="/signup" method="post">
+            <!-- <label for="first_name">First Name:</label><br>
+            <input type="text" id="first_name" name="first_name" value=""><br> -->
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="first name first"><br>
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email" value=""><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" value=""><br>
+            <label for="confirm_password">Confirm Password:</label><br>
+            <input type="password" id="confirm_password" name="confirm_password" value=""><br><br>
+            <input type="submit" class="btn" value="Submit">
+        </form>
+          <br><a href="/login" class="special_links">Already a user? click me</a>
+    </div>
+
+    <script src="script.js"></script>
+   
+</body>
