@@ -51,7 +51,7 @@ const loginAuth = async (req: Request, res: Response, next: NextFunction) => {
         const Param = encodeURIComponent(message.message);
         res.status(302).redirect(`/?message=${Param}`)
     } catch (error) {
-        console.log(error)
+        logger.error(error);
         // res.status(401)
         // res.json({
         //     message: "Unauthorized",

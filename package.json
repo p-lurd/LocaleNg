@@ -23,6 +23,7 @@
     "axios": "^1.6.7",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
+    "copyfiles": "^2.4.1",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
@@ -45,7 +46,7 @@
     "test": "jest --detectOpenHandles --testTimeout=30000",
     "start": "node ./build/index.js",
     "start:dev": "nodemon ./build/index.ts",
-    "build": "rimraf ./build && tsc"
+    "build": "rimraf ./build && tsc && copyfiles -u 1 src/**/*.ejs src/views/**/* src/public/**/* build"
   },
   "keywords": [],
   "author": "",
